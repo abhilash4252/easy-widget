@@ -8,6 +8,6 @@ export default async (req, res) => {
     await sendEmail({ id, feedback });
     return res.status(200).end();
   } catch (error) {
-    return res.status(422).send("Some thing unexpected happened", error);
+    return res.status(422).send(error);
   }
 };
