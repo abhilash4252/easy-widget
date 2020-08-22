@@ -7040,10 +7040,10 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-easy-widget@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-easy-widget/-/react-easy-widget-1.1.2.tgz#310390a8a8da190adfe72fb9975a3b019c2f4fce"
-  integrity sha512-FyHbRyKh5EZjYmbQmZYYH1fwxede1ZcHff6Xj/nEdBUwK6IYY2rqI48P10xtzEJcuL335fO0Dro01BVg1lLBZw==
+react-easy-widget@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-easy-widget/-/react-easy-widget-1.1.3.tgz#0bd0d2625e67995c72aac05b6aac2a0e202fcbda"
+  integrity sha512-ze8kpkY4lj5G/D+52hPhhgsrJqlWl4Qro6JfszRJXv4yAMcbe2CMEaaWAxihzsdxnJvvfT2MeQazPJRIeV9LUg==
   dependencies:
     antd "^4.5.4"
     axios "^0.20.0"
