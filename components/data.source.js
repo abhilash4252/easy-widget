@@ -31,7 +31,7 @@ export const Banner51DataSource = {
   image: {
     className: "banner5-image",
     children:
-      "https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*-wAhRYnWQscAAAAAAAAAAABkARQnAQ",
+      "https://s7.gifyu.com/images/ezgif.com-video-to-gif-2dd715d6cb8053ddb.gif",
   },
 };
 export const Feature00DataSource = {
