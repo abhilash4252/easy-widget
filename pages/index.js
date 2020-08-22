@@ -1,79 +1,80 @@
-import useSWR from "swr";
-import Link from "next/link";
-import { useUser } from "../utils/auth/useUser";
-import { Layout, Menu, Row, Col, Dropdown, Button, Avatar } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-const { Header, Content } = Layout;
+/* eslint no-undef: 0 */
+/* eslint arrow-parens: 0 */
+import React from "react";
+import { enquireScreen } from "enquire-js";
 
-const fetcher = (url, token) =>
-  fetch(url, {
-    method: "GET",
-    headers: new Headers({ "Content-Type": "application/json", token }),
-    credentials: "same-origin",
-  }).then((res) => res.json());
+import Banner from "../components/Banner";
+import Feature from "../components/Feature";
+import Footer from "../components/Footer";
+import Point from "../components/Point";
+import {
+  Banner51DataSource,
+  Feature00DataSource,
+  Footer01DataSource,
+} from "../components/data.source";
+import "../assets/less/antMotionStyle.less";
 
-const Index = () => {
-  const { user, logout } = useUser();
-  const { data, error } = useSWR(
-    user ? ["/api/getFood", user.token] : null,
-    fetcher
-  );
+let isMobile;
+enquireScreen((b) => {
+  isMobile = b;
+});
 
-  if (!user) {
-    return (
-      <>
-        <p>Hi there!</p>
-        <p>
-          You are not signed in.{" "}
-          <Link href={"/auth"}>
-            <a>Sign in</a>
-          </Link>
-        </p>
-      </>
-    );
+const { location = {} } = typeof window !== "undefined" ? window : {};
+
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMobile,
+      show: !location.port,
+    };
   }
 
-  const menu = (
-    <Menu>
-      <Menu.Item key="0">
-        <a onClick={logout}>Log Out</a>
-      </Menu.Item>
-    </Menu>
-  );
-  return (
-    <Layout className="layout">
-      <Header style={{ background: "#fff" }}>
-        <Row>
-          <Col span={3}>
-            <div className="logo" />
-          </Col>
-          <Col span={8}>
-            <Menu mode="horizontal" defaultSelectedKeys={[]}>
-              <Menu.Item key="1">
-                {" "}
-                <Link href={"/example"}>
-                  <a>Nav 1</a>
-                </Link>
-              </Menu.Item>
-            </Menu>
-          </Col>
-          <Col span={4} offset={9}>
-            <Dropdown overlay={menu} trigger={["click"]}>
-              <a>
-                <Avatar src={user.profilePicUrl} />
+  componentDidMount() {
+    enquireScreen((b) => {
+      this.setState({ isMobile: !!b });
+    });
 
-                {user.name}
-                <DownOutlined />
-              </a>
-            </Dropdown>
-          </Col>
-        </Row>
-      </Header>
-      <Content style={{ padding: "0 50px" }}>
-        <div className="site-layout-content">Content</div>
-      </Content>
-    </Layout>
-  );
-};
+    if (location.port) {
+      setTimeout(() => {
+        this.setState({
+          show: true,
+        });
+      }, 500);
+    }
+  }
 
-export default Index;
+  render() {
+    const children = [
+      <Banner
+        id="Banner5_1"
+        key="Banner5_1"
+        dataSource={Banner51DataSource}
+        isMobile={this.state.isMobile}
+      />,
+      <Feature
+        id="Feature0_0"
+        key="Feature0_0"
+        dataSource={Feature00DataSource}
+        isMobile={this.state.isMobile}
+      />,
+      <Footer
+        id="Footer0_1"
+        key="Footer0_1"
+        dataSource={Footer01DataSource}
+        isMobile={this.state.isMobile}
+      />,
+      <Point key="list" data={["Banner5_1", "Feature0_0", "Footer0_1"]} />,
+    ];
+    return (
+      <div
+        className="templates-wrapper"
+        ref={(d) => {
+          this.dom = d;
+        }}
+      >
+        {this.state.show && children}
+      </div>
+    );
+  }
+}
