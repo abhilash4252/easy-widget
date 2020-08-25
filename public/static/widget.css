@@ -67,6 +67,11 @@
   border: none !important ;
   z-index: 10000000 !important ;
 }
+.submit:hover,
+.submit:focus {
+  cursor: pointer;
+  background-color: rgb(197, 153, 8) !important ;
+}
 
 /* Change color of my-widget links on hover */
 .my-widget-content a:hover {

@@ -10,9 +10,9 @@ function easyWidget(email) {
       html += '<center><div id="myWidget" class="my-widget">';
       html += "<div id='content' class='my-widget-content'>";
       html +=
-        "<input id='feedback' class='input-box' placeholder='what do you want us to know?'></input>";
+        "<input id='feedback' class='input-box' placeholder='what do you want us to know?' onkeyup='validate_feedback()'></input>";
       html +=
-        "<button class='submit' onclick='submit_feedback()'>Submit</button>";
+        "<button id='submit-btn' class='submit' onclick='submit_feedback()' disabled>Submit</button>";
       html += "</div>";
 
       html +=
@@ -30,18 +30,27 @@ function expandWidget() {
   document.getElementById("content").classList.toggle("show");
 }
 
+function validate_feedback() {
+  var input = document.getElementById("feedback");
+  if (input.value == "") document.getElementById("submit-btn").disabled = true;
+  else document.getElementById("submit-btn").disabled = false;
+}
+
 function submit_feedback(feedback) {
   var feedback = document.getElementById("feedback").value;
   $.ajax({
     type: "POST",
     url: "https://easy-widget.vercel.app/api/sendEmail",
     data: { id: mail_id, feedback: feedback },
-    dataType: "json",
-    success: function result() {
+    success: () => {
       console.log("Successfully submitted");
       document.getElementById("feedback").value = "";
+      var widgetContent = document.getElementById("content");
+      if (widgetContent.classList.contains("show")) {
+        widgetContent.classList.remove("show");
+      }
     },
-    error: function result() {
+    error: () => {
       console.log("couldnt send mail");
     },
   });
@@ -55,13 +64,9 @@ window.onclick = function (event) {
     !event.target.matches(".submit") &&
     !event.target.matches(".input-box")
   ) {
-    var dropdowns = document.getElementsByClassName("my-widget-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
+    var widgetContent = document.getElementsByClassName("my-widget-content");
+    if (widgetContent.classList.contains("show")) {
+      widgetContent.classList.remove("show");
     }
   }
 };
