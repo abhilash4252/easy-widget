@@ -64,7 +64,7 @@ window.onclick = function (event) {
     !event.target.matches(".submit") &&
     !event.target.matches(".input-box")
   ) {
-    var widgetContent = document.getElementsByClassName("my-widget-content");
+    var widgetContent = document.getElementById("content");
     if (widgetContent.classList.contains("show")) {
       widgetContent.classList.remove("show");
     }
