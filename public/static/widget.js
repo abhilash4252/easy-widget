@@ -10,9 +10,16 @@ function easyWidget(email) {
       html += '<center><div id="myWidget" class="my-widget">';
       html += "<div id='content' class='my-widget-content'>";
       html +=
-        "<input id='feedback' class='input-box' placeholder='what do you want us to know?' onkeyup='validate_feedback()'></input>";
+        "<button class='back-btn'><img src='https://img.icons8.com/small/16/000000/back.png'/></button>";
+      html += "<label class='top-label'><h2>Tell us anything!</h2></label>";
       html +=
-        "<button id='submit-btn' class='submit' onclick='submit_feedback()' disabled>Submit</button>";
+        "<button class='close-btn'><img src='https://img.icons8.com/small/16/000000/multiply.png'/></button>";
+
+      html +=
+        "<textarea name='text' id='feedback' class='input-box' placeholder='what do you want us to know?' onkeyup='validate_feedback()'></textarea>";
+      html +=
+        "<div id='submit-btn' class='submit' onclick='submit_feedback()' disabled>Send Feedback</div>";
+
       html += "</div>";
 
       html +=
@@ -32,28 +39,35 @@ function expandWidget() {
 
 function validate_feedback() {
   var input = document.getElementById("feedback");
-  if (input.value == "") document.getElementById("submit-btn").disabled = true;
-  else document.getElementById("submit-btn").disabled = false;
+  if (input.value == "") {
+    document.getElementById("submit-btn").disabled = true;
+    document.getElementById("submit-btn").classList.remove("submit-onfocus");
+  } else {
+    document.getElementById("submit-btn").disabled = false;
+    document.getElementById("submit-btn").classList.add("submit-onfocus");
+  }
 }
 
 function submit_feedback(feedback) {
   var feedback = document.getElementById("feedback").value;
-  $.ajax({
-    type: "POST",
-    url: "https://easy-widget.vercel.app/api/sendEmail",
-    data: { id: mail_id, feedback: feedback },
-    success: () => {
-      console.log("Successfully submitted");
-      document.getElementById("feedback").value = "";
-      var widgetContent = document.getElementById("content");
-      if (widgetContent.classList.contains("show")) {
-        widgetContent.classList.remove("show");
-      }
-    },
-    error: () => {
-      console.log("couldnt send mail");
-    },
-  });
+  if (feedback != "") {
+    $.ajax({
+      type: "POST",
+      url: "https://easy-widget.vercel.app/api/sendEmail",
+      data: { id: mail_id, feedback: feedback },
+      success: () => {
+        console.log("Successfully submitted");
+        document.getElementById("feedback").value = "";
+        var widgetContent = document.getElementById("content");
+        if (widgetContent.classList.contains("show")) {
+          widgetContent.classList.remove("show");
+        }
+      },
+      error: () => {
+        console.log("couldnt send mail");
+      },
+    });
+  } else console.log("empty feedback cannot be submitted");
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -62,7 +76,8 @@ window.onclick = function (event) {
     !event.target.matches(".feedback-btn") &&
     !event.target.matches(".my-widget-content") &&
     !event.target.matches(".submit") &&
-    !event.target.matches(".input-box")
+    !event.target.matches(".input-box") &&
+    !event.target.matches(".top-label")
   ) {
     var widgetContent = document.getElementById("content");
     if (widgetContent.classList.contains("show")) {

@@ -1,6 +1,6 @@
 .feedback-btn {
-  background-color: #ebb70b !important ;
-  color: white !important ;
+  background-color: rgb(237, 242, 247);
+  color: rgb(160, 174, 192);
   padding: 16px !important ;
   font-size: 16px !important ;
   border: none !important ;
@@ -8,15 +8,19 @@
   cursor: pointer !important ;
   font-weight: bold !important ;
   z-index: 10000000 !important ;
+  position: fixed !important ;
+  right: 50px !important ;
+  bottom: 20px !important ;
+  display: inline-block !important ;
 }
 
 /* feedback button on hover & focus */
 .feedback-btn:hover,
 .feedback-btn:focus {
-  background-color: #cba305 !important ;
+  background-color: #ebf4ffc2 !important ;
+  border: none;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .my-widget {
   position: fixed !important ;
   right: 50px !important ;
@@ -28,49 +32,101 @@
 /* my-widget Content (Hidden by Default) */
 .my-widget-content {
   display: none !important ;
-  position: absolute !important ;
-  margin-top: -210px !important ;
-  margin-left: -250px !important ;
-  background-color: #f2f0e9 !important ;
-  min-width: 160px !important ;
-  height: 210px !important ;
-  border-radius: 10px !important ;
-  width: 350px !important ;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2) !important ;
-  z-index: 10000001 !important ;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+  height: 250px;
+  border-radius: 16px;
+  min-width: 400px;
+  background: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 5px;
+  overflow: hidden;
+  position: relative;
+  left: -20px;
+  top: -50px;
+  box-shadow: 0 18px 50px -10px rgba(0, 0, 0, 0.2);
 }
 
 .input-box {
-  color: #100303f3 !important ;
-  margin: 25px !important ;
-  font-size: 14px !important ;
-  height: 100px !important ;
-  width: 270px !important ;
-  padding: 10px !important ;
-  border-radius: 5px !important ;
+  color: rgb(160, 169, 184);
+  font-weight: 500;
+  word-break: break-word;
+  font-size: 1rem !important ;
+  height: 90px !important ;
+  width: 90% !important ;
+  padding: 0.7rem !important ;
+  border-radius: 10px !important ;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important ;
-  border: none !important ;
+  border: 2px rgb(226, 232, 240) solid;
   z-index: 10000000 !important ;
 }
 
-.submit {
-  color: #ffffff !important ;
-  background-color: #edc217 !important ;
-  padding: 3px !important ;
-  margin: -9px !important ;
-  font-size: 14px !important ;
-  height: 30px !important ;
-  width: 150px !important ;
-  border-radius: 10px !important ;
-  font-weight: bolder !important ;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important ;
-  border: none !important ;
-  z-index: 10000000 !important ;
+textarea {
+  overflow: auto;
 }
-.submit:hover,
-.submit:focus {
+
+.back-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #a0aec0;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
-  background-color: rgb(197, 153, 8) !important ;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10000000;
+}
+
+.close-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #a0aec0;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 10000000;
+}
+
+.submit {
+  width: 90%;
+  margin-top: 1rem;
+  background-color: rgb(237, 242, 247);
+  color: rgb(160, 174, 192);
+  padding: 0.25rem;
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important ;
+  font-weight: 555;
+  font-size: 0.875rem;
+  cursor: initial;
+  border-radius: 7px;
+}
+
+.submit-onfocus {
+  cursor: pointer;
+  background-color: rgb(0, 93, 255) !important ;
+  color: #ffffff;
+}
+
+.input-box:focus {
+  border-color: rgb(0, 93, 255);
+  border: 5px solid rgba(0, 93, 255, 0.9);
+  border-radius: 8px !important ;
 }
 
 /* Change color of my-widget links on hover */
