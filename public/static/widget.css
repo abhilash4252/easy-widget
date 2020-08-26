@@ -1,6 +1,6 @@
 .feedback-btn {
-  background-color: rgb(237, 242, 247);
-  color: rgb(160, 174, 192);
+  background-color: rgb(237, 242, 247) !important ;
+  color: rgb(160, 174, 192) !important ;
   padding: 16px !important ;
   font-size: 16px !important ;
   border: none !important ;
@@ -18,7 +18,7 @@
 .feedback-btn:hover,
 .feedback-btn:focus {
   background-color: #ebf4ffc2 !important ;
-  border: none;
+  border: none !important ;
 }
 
 .my-widget {
@@ -50,82 +50,81 @@
 }
 
 .input-box {
-  color: rgb(160, 169, 184);
-  font-weight: 500;
-  word-break: break-word;
+  color: rgb(160, 169, 184) !important ;
+  font-weight: 500 !important ;
+  word-break: break-word !important ;
   font-size: 1rem !important ;
   height: 90px !important ;
   width: 90% !important ;
   padding: 0.7rem !important ;
   border-radius: 10px !important ;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important ;
-  border: 2px rgb(226, 232, 240) solid;
+  border: 2px rgb(226, 232, 240) solid !important ;
   z-index: 10000000 !important ;
 }
 
 textarea {
-  overflow: auto;
+  overflow: auto !important ;
 }
 
 .back-btn {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  border-radius: 4px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  color: #a0aec0;
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  z-index: 10000000;
+  padding: 0 !important ;
+  border: none !important ;
+  background-color: transparent !important ;
+  border-radius: 4px !important ;
+  display: inline-flex !important ;
+  justify-content: center !important ;
+  align-items: center !important ;
+  color: #a0aec0 !important ;
+  width: 1.5rem !important ;
+  height: 1.5rem !important ;
+  cursor: pointer !important ;
+  position: absolute !important ;
+  left: 1rem !important ;
+  top: 1rem !important ;
+  z-index: 10000000 !important ;
 }
 
 .close-btn {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  border-radius: 4px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  color: #a0aec0;
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  z-index: 10000000;
+  padding: 0 !important ;
+  border: none !important ;
+  background-color: transparent !important ;
+  border-radius: 4px !important ;
+  display: inline-flex !important ;
+  justify-content: center !important ;
+  align-items: center !important ;
+  color: #a0aec0 !important ;
+  width: 1.5rem !important ;
+  height: 1.5rem !important ;
+  cursor: pointer !important ;
+  position: absolute !important ;
+  right: 1rem !important ;
+  top: 1rem !important ;
+  z-index: 10000000 !important ;
 }
 
 .submit {
-  width: 90%;
-  margin-top: 1rem;
-  background-color: rgb(237, 242, 247);
-  color: rgb(160, 174, 192);
-  padding: 0.25rem;
-  padding: 10px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important ;
-  font-weight: 555;
-  font-size: 0.875rem;
-  cursor: initial;
-  border-radius: 7px;
+  width: 90% !important ;
+  margin-top: 1rem !important ;
+  background-color: rgb(237, 242, 247) !important ;
+  color: rgb(160, 174, 192) !important ;
+  padding: 0.35rem !important ;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  font-weight: 555 !important ;
+  font-size: 0.875rem !important ;
+  cursor: initial !important ;
+  border-radius: 7px !important ;
 }
 
 .submit-onfocus {
-  cursor: pointer;
+  cursor: pointer !important ;
   background-color: rgb(0, 93, 255) !important ;
-  color: #ffffff;
+  color: #ffffff !important ;
 }
 
 .input-box:focus {
-  border-color: rgb(0, 93, 255);
-  border: 5px solid rgba(0, 93, 255, 0.9);
+  border-color: rgb(0, 93, 255) !important ;
+  border: 5px solid rgba(0, 93, 255, 0.9) !important ;
   border-radius: 8px !important ;
 }
 
