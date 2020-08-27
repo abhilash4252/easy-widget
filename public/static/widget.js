@@ -14,7 +14,7 @@ function easyWidget(email) {
         "<button class='close-btn' onclick='clear_input()'><img src='https://img.icons8.com/small/16/000000/multiply.png'/></button>";
 
       html +=
-        "<textarea name='text' id='feedback' class='input-box' placeholder='what do you want us to know?' onkeyup='validate_feedback()'></textarea>";
+        "<textarea name='text' id='feedback' class='input-box' placeholder='What do you want us to know?' onkeyup='validate_feedback()'></textarea>";
       html +=
         "<div id='submit-btn' class='submit' onclick='submit_feedback()' disabled>Send Feedback</div>";
 
