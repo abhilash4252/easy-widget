@@ -9,11 +9,9 @@ function easyWidget(email) {
       var html = "";
       html += '<center><div id="myWidget" class="my-widget">';
       html += "<div id='content' class='my-widget-content'>";
-      html +=
-        "<button class='back-btn'><img src='https://img.icons8.com/small/16/000000/back.png'/></button>";
       html += "<label class='top-label'><h2>Tell us anything!</h2></label>";
       html +=
-        "<button class='close-btn'><img src='https://img.icons8.com/small/16/000000/multiply.png'/></button>";
+        "<button class='close-btn' onclick='clear_input()'><img src='https://img.icons8.com/small/16/000000/multiply.png'/></button>";
 
       html +=
         "<textarea name='text' id='feedback' class='input-box' placeholder='what do you want us to know?' onkeyup='validate_feedback()'></textarea>";
@@ -35,6 +33,10 @@ function easyWidget(email) {
 
 function expandWidget() {
   document.getElementById("content").classList.toggle("show");
+}
+
+function clear_input() {
+  document.getElementById("feedback").value = "";
 }
 
 function validate_feedback() {
