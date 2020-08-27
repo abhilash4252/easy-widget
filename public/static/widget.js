@@ -37,6 +37,8 @@ function expandWidget() {
 
 function clear_input() {
   document.getElementById("feedback").value = "";
+  document.getElementById("submit-btn").disabled = true;
+  document.getElementById("submit-btn").classList.remove("submit-onfocus");
 }
 
 function validate_feedback() {
